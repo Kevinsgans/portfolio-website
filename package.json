@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Portfolio page - React app",
   "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "dev": "vite",
@@ -21,7 +25,7 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^24.13.3",
+    "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.0.5",
