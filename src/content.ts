@@ -4,11 +4,11 @@ import type { PortfolioContent } from '@/types';
 export const portfolioContent: PortfolioContent = {
   profile: {
     name: 'Kevin Gan',
-    role: 'Electrical & Computer Engineering student',
+    role: 'Mathematics & Computer Science student',
     introduction:
-      'I build embedded systems and full-stack software, from low-level hardware interfaces to production web applications.',
+      'I build data-intensive and interactive software, from Python analytics pipelines and full-stack applications to real-time motion-capture tools.',
     about:
-      'I am a third-year engineering student interested in the full path from hardware constraints to dependable software. My work spans embedded development, systems programming, web applications, and infrastructure.',
+      'I am a Mathematics and Computer Science student at Emory University with experience across data engineering, geospatial analytics, full-stack development, and motion-capture systems. I enjoy turning complex data and real-time sensor inputs into reliable software, from Python pipelines and interactive maps to Rust diagnostics and React applications.',
     photo: {
       src: profilePhoto,
       alt: 'Kevin Gan in a professional studio portrait',
@@ -263,19 +263,21 @@ export const portfolioContent: PortfolioContent = {
     },
   ],
   education: {
-    institution: 'University of Toronto',
-    program: 'B.A.Sc. in Computer Engineering',
-    dates: 'Third year',
+    institution: 'Emory University',
+    program: 'B.S. in Mathematics & Computer Science',
+    dates: 'Expected Fall 2028',
     details: [
-      'Algorithms and data structures',
-      'Operating systems',
-      'Computer organization',
-      'Digital systems',
+      'Cumulative GPA: 4.0/4.0',
+      'Major GPA: 4.0/4.0',
+      'AI applications and algorithms',
+      'Statistical computing (R, Python, SQL)',
+      'Foundations of computer science',
+      'Linear algebra',
     ],
   },
   metadata: {
     title: 'Kevin Gan | Engineering Portfolio',
     description:
-      'Embedded systems and full-stack software projects by electrical and computer engineering student Kevin Gan.',
+      'Software, data, and applied computing projects by Emory University Mathematics and Computer Science student Kevin Gan.',
   },
 };
