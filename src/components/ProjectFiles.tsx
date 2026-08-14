@@ -23,10 +23,9 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
     () => new Map(folders.map((folder) => [folder.id, folder.title])),
     [folders],
   );
-  const [activeProjectId, setActiveProjectId] = useState<string | null>(
-    visibleProjects[0]?.id ?? null,
-  );
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(null);
   const [pendingProjectId, setPendingProjectId] = useState<string | null>(null);
+  const [closingProjectId, setClosingProjectId] = useState<string | null>(null);
   const [failedMedia, setFailedMedia] = useState<Set<string>>(() => new Set());
   const pageTurnTimer = useRef<number | null>(null);
 
@@ -40,16 +39,33 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
   );
 
   const openProject = (projectId: string) => {
-    if (projectId === activeProjectId || projectId === pendingProjectId) return;
+    if (projectId === pendingProjectId || closingProjectId !== null) return;
 
     if (pageTurnTimer.current !== null) {
       window.clearTimeout(pageTurnTimer.current);
     }
 
+    if (projectId === activeProjectId) {
+      setClosingProjectId(projectId);
+      pageTurnTimer.current = window.setTimeout(() => {
+        setActiveProjectId(null);
+        setClosingProjectId(null);
+        pageTurnTimer.current = null;
+      }, 360);
+      return;
+    }
+
+    if (activeProjectId === null) {
+      setActiveProjectId(projectId);
+      return;
+    }
+
+    setClosingProjectId(activeProjectId);
     setPendingProjectId(projectId);
     pageTurnTimer.current = window.setTimeout(() => {
       setActiveProjectId(projectId);
       setPendingProjectId(null);
+      setClosingProjectId(null);
       pageTurnTimer.current = null;
     }, 360);
   };
@@ -73,7 +89,7 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
       <div className="project-files">
         {visibleProjects.map((project, projectIndex) => {
           const isOpen = project.id === activeProjectId;
-          const isTurningOut = isOpen && pendingProjectId !== null;
+          const isTurningOut = project.id === closingProjectId;
           const media = failedMedia.has(project.id) ? undefined : project.media;
           const panelId = `project-folder-panel-${project.id}`;
           const headingId = `project-folder-heading-${project.id}`;
@@ -89,7 +105,7 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
                 <button
                   aria-controls={panelId}
                   aria-expanded={isOpen && !isTurningOut}
-                  aria-label={`Open ${project.title} folder`}
+                  aria-label={`${isOpen ? 'Close' : 'Open'} ${project.title} folder`}
                   className="project-folder-tab"
                   onClick={() => openProject(project.id)}
                   type="button"
@@ -101,7 +117,7 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
                   <button
                     aria-controls={panelId}
                     aria-expanded={isOpen && !isTurningOut}
-                    aria-label={`Open ${project.title} folder`}
+                    aria-label={`${isOpen ? 'Close' : 'Open'} ${project.title} folder`}
                     className="project-folder-toggle"
                     onClick={() => openProject(project.id)}
                     type="button"
@@ -114,11 +130,11 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
                 </h3>
 
                 <div
-                  aria-hidden={!isOpen}
+                  aria-hidden={!isOpen || isTurningOut}
                   aria-labelledby={headingId}
                   className="project-folder-collapse"
                   id={panelId}
-                  inert={!isOpen}
+                  inert={!isOpen || isTurningOut}
                   role="region"
                 >
                   <div className="project-folder-collapse-inner">
@@ -212,7 +228,7 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
         })}
       </div>
 
-      <p className="archive-hint">Hover to lift · select to turn the page</p>
+      <p className="archive-hint">Hover to lift. Click to open.</p>
     </div>
   );
 }
