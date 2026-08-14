@@ -1,6 +1,6 @@
 ## Introduction
 
-This portfolio is built with React, TypeScript, MUI, and Vite, with Tailwind CSS for utility styling.
+This portfolio is built with React, TypeScript, Vite, and Tailwind CSS.
 
 ### Install Dependencies
 
@@ -19,6 +19,12 @@ pnpm dev
 ```
 pnpm build
 ```
+
+### Deployment
+
+Pushes to `main` are built and deployed to GitHub Pages by
+`.github/workflows/deploy.yml`. In the repository's **Settings → Pages**, the
+deployment source must be set to **GitHub Actions**.
 
 ### TypeScript Configuration
 
