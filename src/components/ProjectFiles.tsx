@@ -66,9 +66,9 @@ export function ProjectFiles({
     }
 
     setClosingProjectId(activeProjectId);
+    setActiveProjectId(projectId);
     setPendingProjectId(projectId);
     pageTurnTimer.current = window.setTimeout(() => {
-      setActiveProjectId(projectId);
       setPendingProjectId(null);
       setClosingProjectId(null);
       pageTurnTimer.current = null;

@@ -1186,7 +1186,7 @@ button {
   transition-delay: 70ms;
 }
 
-.project-folder.is-open.is-turning-out .project-folder-collapse {
+.project-folder.is-turning-out .project-folder-collapse {
   grid-template-rows: 0fr;
   transition-duration: 360ms;
   transition-delay: 0ms;
