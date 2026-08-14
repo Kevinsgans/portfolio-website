@@ -8,9 +8,15 @@ interface PortfolioProps {
   content: PortfolioContent;
   mode: ColorMode;
   onToggleColorMode: () => void;
+  onProjectNavigate: (projectId: string) => void;
 }
 
-function Portfolio({ content, mode, onToggleColorMode }: PortfolioProps) {
+function Portfolio({
+  content,
+  mode,
+  onToggleColorMode,
+  onProjectNavigate,
+}: PortfolioProps) {
   const { profile, projectFolders, projects, skillGroups, education } = content;
 
   return (
@@ -93,7 +99,11 @@ function Portfolio({ content, mode, onToggleColorMode }: PortfolioProps) {
               </p>
             </div>
 
-            <ProjectFiles folders={projectFolders} projects={projects} />
+            <ProjectFiles
+              folders={projectFolders}
+              onProjectNavigate={onProjectNavigate}
+              projects={projects}
+            />
           </div>
         </section>
 

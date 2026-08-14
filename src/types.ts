@@ -1,4 +1,5 @@
 export type ColorMode = 'light' | 'dark';
+export type ProjectTone = 'cobalt' | 'green' | 'purple' | 'red' | 'charcoal';
 
 export type LinkKind = 'github' | 'external' | 'video' | 'document';
 
@@ -6,6 +7,8 @@ export interface ExternalLink {
   label: string;
   href: string;
   kind: LinkKind;
+  openInNewTab?: boolean;
+  transition?: boolean;
 }
 
 export interface ProfileImage {
@@ -38,6 +41,7 @@ export interface ProjectFolder {
 export interface Project {
   id: string;
   folderId: ProjectFolder['id'];
+  tone: ProjectTone;
   title: string;
   summary: string;
   contribution: string;

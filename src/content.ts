@@ -54,6 +54,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'tradeflow-system',
       folderId: 'software',
+      tone: 'cobalt',
       title: 'TradeFlow System',
       summary:
         'A full-stack trade management application built for a small business and deployed from design through production.',
@@ -66,6 +67,8 @@ export const portfolioContent: PortfolioContent = {
           label: 'Project details',
           href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/tradeflow-system/',
           kind: 'external',
+          openInNewTab: false,
+          transition: true,
         },
         {
           label: 'GitHub',
@@ -77,6 +80,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'dinosaur-game',
       folderId: 'embedded',
+      tone: 'green',
       title: 'STM32 Dinosaur Game',
       summary:
         'An embedded game for an STM32 microcontroller with custom graphics, input handling, and OLED output.',
@@ -89,6 +93,13 @@ export const portfolioContent: PortfolioContent = {
         alt: 'Dinosaur game running on an STM32 OLED display',
       },
       links: [
+        {
+          label: 'Project details',
+          href: '#project/dinosaur-game',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
         {
           label: 'Watch video',
           href: 'https://youtu.be/_ZocQdUdjPw?si=gIY0hTswSoknH1XM',
@@ -104,6 +115,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'gis-route-optimization',
       folderId: 'software',
+      tone: 'purple',
       title: 'GIS Route Optimization',
       summary:
         'A C++ geographic information system with real-time pathfinding and interactive map visualization.',
@@ -116,6 +128,8 @@ export const portfolioContent: PortfolioContent = {
           label: 'Project details',
           href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/gis-route-optimization-application/',
           kind: 'external',
+          openInNewTab: false,
+          transition: true,
         },
         {
           label: 'View presentation',
@@ -127,6 +141,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'runner-game',
       folderId: 'embedded',
+      tone: 'red',
       title: 'RISC-V Runner Game',
       summary:
         'A runner game implemented for a RISC-V processor with custom graphics and input handling.',
@@ -136,20 +151,23 @@ export const portfolioContent: PortfolioContent = {
       featured: false,
       links: [
         {
-          label: 'GitHub',
-          href: 'https://github.com/lihaozhe013/ece243_runner_game',
-          kind: 'github',
-        },
-        {
           label: 'Project details',
           href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/runner-game-ece243-project/',
           kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
+        {
+          label: 'GitHub',
+          href: 'https://github.com/lihaozhe013/ece243_runner_game',
+          kind: 'github',
         },
       ],
     },
     {
       id: 'greedy-mouse-game',
       folderId: 'embedded',
+      tone: 'charcoal',
       title: 'FPGA Greedy Mouse Game',
       summary:
         'A hardware game implemented on a DE1-SoC FPGA board with custom graphics and input handling.',
@@ -158,6 +176,13 @@ export const portfolioContent: PortfolioContent = {
       technologies: ['Verilog', 'Quartus Prime', 'ModelSim'],
       featured: false,
       links: [
+        {
+          label: 'Project details',
+          href: '#project/greedy-mouse-game',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
         {
           label: 'View presentation',
           href: 'https://lihaozhe013.github.io/lihaozhe-website/portfolio/ece241-final-presentation.pdf',
@@ -168,6 +193,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'tradeflow-infrastructure',
       folderId: 'infrastructure',
+      tone: 'cobalt',
       title: 'TradeFlow Infrastructure',
       summary:
         'Production infrastructure for TradeFlow with automated delivery and containerized services.',
@@ -180,12 +206,15 @@ export const portfolioContent: PortfolioContent = {
           label: 'Project details',
           href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/tradeflow-system/',
           kind: 'external',
+          openInNewTab: false,
+          transition: true,
         },
       ],
     },
     {
       id: 'streamfile-server',
       folderId: 'software',
+      tone: 'purple',
       title: 'StreamFile Server',
       summary:
         'A database-free resource server with media playback, uploads, search, and private links.',
@@ -194,6 +223,13 @@ export const portfolioContent: PortfolioContent = {
       technologies: ['TypeScript', 'Node.js', 'React', 'Express', 'Docker'],
       featured: false,
       links: [
+        {
+          label: 'Project details',
+          href: '#project/streamfile-server',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
         {
           label: 'GitHub',
           href: 'https://github.com/lihaozhe013/streamfile-server-nodejs',
@@ -209,6 +245,7 @@ export const portfolioContent: PortfolioContent = {
     {
       id: 'license-plate-recognition',
       folderId: 'software',
+      tone: 'green',
       title: 'License Plate Recognition',
       summary:
         'An Ontario license plate recognition system using detection and sequence-recognition models.',
@@ -217,6 +254,13 @@ export const portfolioContent: PortfolioContent = {
       technologies: ['Python', 'PyTorch', 'CNN', 'CRNN'],
       featured: false,
       links: [
+        {
+          label: 'Project details',
+          href: '#project/license-plate-recognition',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
         {
           label: 'GitHub',
           href: 'https://github.com/lihaozhe013/APS360-Project-License-Plate-Recognition',

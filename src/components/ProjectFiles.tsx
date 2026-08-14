@@ -6,6 +6,7 @@ import type { Project, ProjectFolder } from '@/types';
 interface ProjectFilesProps {
   folders: ProjectFolder[];
   projects: Project[];
+  onProjectNavigate: (projectId: string) => void;
 }
 
 const VISIBLE_PROJECT_COUNT = 5;
@@ -14,7 +15,11 @@ function getProjectFileName(project: Project): string {
   return `${project.id}.project`;
 }
 
-export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
+export function ProjectFiles({
+  folders,
+  projects,
+  onProjectNavigate,
+}: ProjectFilesProps) {
   const visibleProjects = useMemo(
     () => projects.slice(0, VISIBLE_PROJECT_COUNT),
     [projects],
@@ -99,6 +104,7 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
             <section
               className={`project-folder${isOpen ? ' is-open' : ''}${isTurningOut ? ' is-turning-out' : ''}`}
               data-folder-position={projectIndex + 1}
+              data-project-tone={project.tone}
               key={project.id}
             >
               <div className="project-folder-cover">
@@ -189,6 +195,8 @@ export function ProjectFiles({ folders, projects }: ProjectFilesProps) {
                                 className="archive-link focus-ring"
                                 key={`${project.id}-${link.label}`}
                                 link={link}
+                                onPageTransitionComplete={onProjectNavigate}
+                                pageTransitionId={project.id}
                               />
                             ))}
                           </div>
