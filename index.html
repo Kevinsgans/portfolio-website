@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Haozhe Li | Engineering Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/src/assets/avatar.svg" />
+    <meta
+      name="description"
+      content="Embedded systems and full-stack software projects by electrical and computer engineering student Haozhe Li."
+    />
+    <meta property="og:title" content="Haozhe Li | Engineering Portfolio" />
+    <meta
+      property="og:description"
+      content="Embedded systems and full-stack software projects by electrical and computer engineering student Haozhe Li."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <script>
+      (() => {
+        const storedMode = window.localStorage.getItem('color-mode');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+        const useDarkMode =
+          storedMode === 'dark' || (storedMode === null && prefersDark);
+        document.documentElement.classList.toggle('dark', useDarkMode);
+        document.documentElement.style.colorScheme = useDarkMode
+          ? 'dark'
+          : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>
