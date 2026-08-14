@@ -3,7 +3,7 @@ import type { PortfolioContent } from '@/types';
 
 export const portfolioContent: PortfolioContent = {
   profile: {
-    name: 'Haozhe Li',
+    name: 'Kevin Gan',
     role: 'Electrical & Computer Engineering student',
     introduction:
       'I build embedded systems and full-stack software, from low-level hardware interfaces to production web applications.',
@@ -11,18 +11,18 @@ export const portfolioContent: PortfolioContent = {
       'I am a third-year engineering student interested in the full path from hardware constraints to dependable software. My work spans embedded development, systems programming, web applications, and infrastructure.',
     photo: {
       src: profilePhoto,
-      alt: 'Haozhe Li in a professional studio portrait',
+      alt: 'Kevin Gan in a professional studio portrait',
     },
     email: 'lihaozhe013@gmail.com',
     socialLinks: [
       {
         label: 'GitHub',
-        href: 'https://github.com/lihaozhe013',
+        href: 'https://github.com/Kevinsgans',
         kind: 'github',
       },
       {
         label: 'LinkedIn',
-        href: 'https://linkedin.com/in/lihaozhe013',
+        href: 'https://www.linkedin.com/in/kevinsgans/',
         kind: 'external',
       },
       {
@@ -274,8 +274,8 @@ export const portfolioContent: PortfolioContent = {
     ],
   },
   metadata: {
-    title: 'Haozhe Li | Engineering Portfolio',
+    title: 'Kevin Gan | Engineering Portfolio',
     description:
-      'Embedded systems and full-stack software projects by electrical and computer engineering student Haozhe Li.',
+      'Embedded systems and full-stack software projects by electrical and computer engineering student Kevin Gan.',
   },
 };
