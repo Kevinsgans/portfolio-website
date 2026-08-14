@@ -6,6 +6,8 @@ export interface ExternalLink {
   label: string;
   href: string;
   kind: LinkKind;
+  openInNewTab?: boolean;
+  transition?: boolean;
 }
 
 export interface ProfileImage {
