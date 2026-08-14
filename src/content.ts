@@ -267,8 +267,6 @@ export const portfolioContent: PortfolioContent = {
     program: 'B.S. in Mathematics & Computer Science',
     dates: 'Expected Fall 2028',
     details: [
-      'Cumulative GPA: 4.0/4.0',
-      'Major GPA: 4.0/4.0',
       'AI applications and algorithms',
       'Statistical computing (R, Python, SQL)',
       'Foundations of computer science',
