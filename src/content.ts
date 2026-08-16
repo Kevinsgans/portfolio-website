@@ -52,224 +52,153 @@ export const portfolioContent: PortfolioContent = {
   ],
   projects: [
     {
-      id: 'tradeflow-system',
-      folderId: 'software',
+      id: 'zerolab-motion-capture',
+      folderId: 'embedded',
       tone: 'cobalt',
-      title: 'TradeFlow System',
+      title: 'ZeroLab Motion Capture',
       summary:
-        'A full-stack trade management application built for a small business and deployed from design through production.',
+        'A motion-capture and robotics software stack for inspecting live IMU streams and translating body motion into reliable interactive inputs.',
       contribution:
-        'Designed the application architecture, implemented the product, and owned the production deployment workflow.',
-      technologies: ['TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Docker'],
+        'Built a standalone Rust diagnostics application and a modular motion-processing pipeline for skeleton state, gesture scores, packet health, calibration, and Godot input.',
+      challenge:
+        'Keep sensor inspection, capture health, and motion translation observable without blocking the live capture loop.',
+      outcome:
+        'Created a focused diagnostic surface for real-time capture and a reusable path from sensor data to game-ready controls.',
+      technologies: ['Rust', 'eframe/egui', 'IMU', 'Motion capture', 'Godot'],
       featured: true,
       links: [
         {
           label: 'Project details',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/tradeflow-system/',
+          href: '#project/zerolab-motion-capture',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
+      ],
+    },
+    {
+      id: 'bigquery-release-notes',
+      folderId: 'software',
+      tone: 'green',
+      title: 'BigQuery Release Notes',
+      summary:
+        'A Flask dashboard that turns the live Google Cloud BigQuery RSS feed into searchable, topic-level release cards.',
+      contribution:
+        'Built the feed ingestion, five-minute cache, topic splitting, responsive interface, and tweet composer with a live character count.',
+      challenge:
+        'Keep a live external feed useful during refreshes while making dense release notes easy to scan.',
+      outcome:
+        'Combined manual refresh, filters, search, and a Twitter intent workflow in one responsive dark dashboard.',
+      technologies: [
+        'Python',
+        'Flask',
+        'Requests',
+        'Vanilla JavaScript',
+        'CSS',
+      ],
+      featured: true,
+      links: [
+        {
+          label: 'Project details',
+          href: '#project/bigquery-release-notes',
           kind: 'external',
           openInNewTab: false,
           transition: true,
         },
         {
           label: 'GitHub',
-          href: 'https://github.com/lihaozhe013/tradeflow-oss',
+          href: 'https://github.com/Kevinsgans/event-talk-apps',
           kind: 'github',
         },
       ],
     },
     {
-      id: 'dinosaur-game',
-      folderId: 'embedded',
-      tone: 'green',
-      title: 'STM32 Dinosaur Game',
-      summary:
-        'An embedded game for an STM32 microcontroller with custom graphics, input handling, and OLED output.',
-      contribution:
-        'Implemented the real-time game loop and hardware interfaces across DMA, GPIO, and I2C peripherals.',
-      technologies: ['C', 'STM32', 'DMA', 'GPIO', 'I2C'],
-      featured: true,
-      media: {
-        src: 'https://i.ytimg.com/vi/_ZocQdUdjPw/maxresdefault.jpg',
-        alt: 'Dinosaur game running on an STM32 OLED display',
-      },
-      links: [
-        {
-          label: 'Project details',
-          href: '#project/dinosaur-game',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-        {
-          label: 'Watch video',
-          href: 'https://youtu.be/_ZocQdUdjPw?si=gIY0hTswSoknH1XM',
-          kind: 'video',
-        },
-        {
-          label: 'Read report',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/portfolio/ECE342FinalReport.pdf',
-          kind: 'document',
-        },
-      ],
-    },
-    {
-      id: 'gis-route-optimization',
+      id: 'atlanta-mobility-access',
       folderId: 'software',
       tone: 'purple',
-      title: 'GIS Route Optimization',
+      title: 'Atlanta Mobility Access Lab',
       summary:
-        'A C++ geographic information system with real-time pathfinding and interactive map visualization.',
+        'A geospatial analysis of MARTA routes, hypothetical stops, and nearby businesses across Atlanta.',
       contribution:
-        'Built routing and map interactions using Dijkstra, A*, and a greedy courier-routing strategy.',
-      technologies: ['C++', 'GTK', 'Dijkstra', 'A*', 'TomTom API'],
+        'Built nearest-stop analyses, accessibility comparisons, and hypothetical-stop scenarios in Python, GeoPandas, and Folium.',
+      challenge:
+        'Make transit access legible across businesses, mobility groups, and disinvestment groups.',
+      outcome:
+        'Delivered interactive maps and scenario views for evaluating transit-access opportunities.',
+      technologies: ['Python', 'pandas', 'GeoPandas', 'Folium', 'MARTA GTFS'],
       featured: true,
       links: [
         {
           label: 'Project details',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/gis-route-optimization-application/',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-        {
-          label: 'View presentation',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/portfolio/ECE297-OP2.pdf',
-          kind: 'document',
-        },
-      ],
-    },
-    {
-      id: 'runner-game',
-      folderId: 'embedded',
-      tone: 'red',
-      title: 'RISC-V Runner Game',
-      summary:
-        'A runner game implemented for a RISC-V processor with custom graphics and input handling.',
-      contribution:
-        'Integrated C and RISC-V assembly in a constrained embedded environment.',
-      technologies: ['C', 'RISC-V Assembly', 'CPULator'],
-      featured: false,
-      links: [
-        {
-          label: 'Project details',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/runner-game-ece243-project/',
+          href: '#project/atlanta-mobility-access',
           kind: 'external',
           openInNewTab: false,
           transition: true,
         },
         {
           label: 'GitHub',
-          href: 'https://github.com/lihaozhe013/ece243_runner_game',
+          href: 'https://github.com/kelsxcx/AIDataLabGroup10_2025',
           kind: 'github',
         },
       ],
     },
     {
-      id: 'greedy-mouse-game',
-      folderId: 'embedded',
-      tone: 'charcoal',
-      title: 'FPGA Greedy Mouse Game',
-      summary:
-        'A hardware game implemented on a DE1-SoC FPGA board with custom graphics and input handling.',
-      contribution:
-        'Designed and verified the digital system in Verilog using Quartus Prime and ModelSim.',
-      technologies: ['Verilog', 'Quartus Prime', 'ModelSim'],
-      featured: false,
-      links: [
-        {
-          label: 'Project details',
-          href: '#project/greedy-mouse-game',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-        {
-          label: 'View presentation',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/portfolio/ece241-final-presentation.pdf',
-          kind: 'document',
-        },
-      ],
-    },
-    {
-      id: 'tradeflow-infrastructure',
+      id: 'scholarship-application-agent',
       folderId: 'infrastructure',
-      tone: 'cobalt',
-      title: 'TradeFlow Infrastructure',
+      tone: 'red',
+      title: 'Scholarship Application Agent',
       summary:
-        'Production infrastructure for TradeFlow with automated delivery and containerized services.',
+        'A local-first scholarship workflow with a FastAPI backend, React setup workspace, SQLite persistence, and document/profile APIs.',
       contribution:
-        'Implemented CI, deployment, networking, and service orchestration across AWS and Linux hosts.',
-      technologies: ['AWS', 'Docker', 'GitHub Actions', 'Nginx', 'Argo CD'],
-      featured: false,
+        'Built validated profile and document APIs, versioned local persistence, React workspaces, health checks, and a deterministic test suite.',
+      challenge:
+        'Keep sensitive profile and document metadata local while making state transitions and file checks explicit.',
+      outcome:
+        'Created a tested foundation for profile setup and document management, with discovery and automation intentionally outside the current scope.',
+      technologies: ['React', 'TypeScript', 'FastAPI', 'SQLAlchemy', 'SQLite'],
+      featured: true,
       links: [
         {
           label: 'Project details',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/tradeflow-system/',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-      ],
-    },
-    {
-      id: 'streamfile-server',
-      folderId: 'software',
-      tone: 'purple',
-      title: 'StreamFile Server',
-      summary:
-        'A database-free resource server with media playback, uploads, search, and private links.',
-      contribution:
-        'Built the Node.js service, React interface, media workflows, and containerized deployment.',
-      technologies: ['TypeScript', 'Node.js', 'React', 'Express', 'Docker'],
-      featured: false,
-      links: [
-        {
-          label: 'Project details',
-          href: '#project/streamfile-server',
+          href: '#project/scholarship-application-agent',
           kind: 'external',
           openInNewTab: false,
           transition: true,
         },
         {
           label: 'GitHub',
-          href: 'https://github.com/lihaozhe013/streamfile-server-nodejs',
+          href: 'https://github.com/Kevinsgans/SF1',
           kind: 'github',
-        },
-        {
-          label: 'View screenshots',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/posts/streamfile-server/',
-          kind: 'external',
         },
       ],
     },
     {
-      id: 'license-plate-recognition',
+      id: 'makemore-language-model',
       folderId: 'software',
-      tone: 'green',
-      title: 'License Plate Recognition',
+      tone: 'charcoal',
+      title: 'Makemore Language Model',
       summary:
-        'An Ontario license plate recognition system using detection and sequence-recognition models.',
+        'A compact character-level language model that learns to generate name-like text from plain-text datasets.',
       contribution:
-        'Trained and evaluated a CNN bounding-box model with a CRNN character-recognition pipeline.',
-      technologies: ['Python', 'PyTorch', 'CNN', 'CRNN'],
+        'Explored a single-file training and sampling workflow across bigram, MLP, recurrent, and Transformer-style language models.',
+      challenge:
+        'Make model experiments small enough to understand, modify, and run locally while preserving useful text generation.',
+      outcome:
+        'A hackable CPU-friendly workflow for training and sampling language models from simple line-based datasets.',
+      technologies: ['Python', 'PyTorch', 'RNN', 'GRU', 'Transformer'],
       featured: false,
       links: [
         {
           label: 'Project details',
-          href: '#project/license-plate-recognition',
+          href: '#project/makemore-language-model',
           kind: 'external',
           openInNewTab: false,
           transition: true,
         },
         {
           label: 'GitHub',
-          href: 'https://github.com/lihaozhe013/APS360-Project-License-Plate-Recognition',
+          href: 'https://github.com/Kevingan11/makemore',
           kind: 'github',
-        },
-        {
-          label: 'Read report',
-          href: 'https://lihaozhe013.github.io/lihaozhe-website/portfolio/APS360_Project_Final_Report.pdf',
-          kind: 'document',
         },
       ],
     },
