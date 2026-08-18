@@ -19,9 +19,7 @@ function getInitialMode(): ColorMode {
     return storedMode;
   }
 
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  return 'light';
 }
 
 function updateMeta(name: string, content: string, property = false): void {
