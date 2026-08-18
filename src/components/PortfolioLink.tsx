@@ -3,6 +3,8 @@ import {
   ArrowUpRight,
   FileText,
   GithubLogo,
+  Globe,
+  LinkedinLogo,
   Play,
 } from '@phosphor-icons/react';
 import type { ExternalLink } from '@/types';
@@ -19,6 +21,10 @@ function LinkIcon({ kind }: Pick<ExternalLink, 'kind'>) {
   switch (kind) {
     case 'github':
       return <GithubLogo aria-hidden="true" size={17} weight="regular" />;
+    case 'linkedin':
+      return <LinkedinLogo aria-hidden="true" size={17} weight="regular" />;
+    case 'website':
+      return <Globe aria-hidden="true" size={17} weight="regular" />;
     case 'video':
       return <Play aria-hidden="true" size={17} weight="fill" />;
     case 'document':

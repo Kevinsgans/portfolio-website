@@ -69,7 +69,6 @@ function Portfolio({
                       className="quiet-link focus-ring"
                       key={link.label}
                       link={link}
-                      showIcon={false}
                     />
                   ))}
                 </div>
@@ -208,7 +207,6 @@ function Portfolio({
                 className="quiet-link focus-ring"
                 key={`footer-${link.label}`}
                 link={link}
-                showIcon={false}
               />
             ))}
           </div>

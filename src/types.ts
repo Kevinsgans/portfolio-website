@@ -1,7 +1,8 @@
 export type ColorMode = 'light' | 'dark';
 export type ProjectTone = 'cobalt' | 'green' | 'purple' | 'red' | 'charcoal';
 
-export type LinkKind = 'github' | 'external' | 'video' | 'document';
+export type LinkKind =
+  'github' | 'linkedin' | 'website' | 'external' | 'video' | 'document';
 
 export interface ExternalLink {
   label: string;

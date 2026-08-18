@@ -23,12 +23,12 @@ export const portfolioContent: PortfolioContent = {
       {
         label: 'LinkedIn',
         href: 'https://www.linkedin.com/in/kevinsgans/',
-        kind: 'external',
+        kind: 'linkedin',
       },
       {
         label: 'Website',
         href: 'https://lihaozhe013.github.io/lihaozhe-website/',
-        kind: 'external',
+        kind: 'website',
       },
     ],
   },
