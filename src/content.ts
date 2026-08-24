@@ -8,7 +8,7 @@ export const portfolioContent: PortfolioContent = {
     introduction:
       'I build data-intensive and interactive software, from Python analytics pipelines and full-stack applications to real-time motion-capture tools.',
     about:
-      'I am a Mathematics and Computer Science student at Emory University with experience across data engineering, geospatial analytics, full-stack development, and motion-capture systems. I enjoy turning complex data and real-time sensor inputs into reliable software, from Python pipelines and interactive maps to Rust diagnostics and React applications.',
+      'I study Mathematics and Computer Science at Emory, but most of my work lives between disciplines. I like taking a messy source—live IMU packets, transit data, or a changing feed—and building the path that makes it understandable, dependable, and useful.',
     photo: {
       src: profilePhoto,
       alt: 'Kevin Gan in a professional studio portrait',

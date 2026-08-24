@@ -137,35 +137,80 @@ function Portfolio({
         </section>
 
         <section className="section-block scroll-mt-24" id="about">
-          <div className="site-container grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-24">
-            <div>
-              <h2 className="section-title">About</h2>
-              <p className="mt-7 max-w-[62ch] text-pretty text-lg leading-8 text-[var(--text)]">
-                {profile.about}
-              </p>
-            </div>
+          <div className="site-container">
+            <div className="about-stage">
+              <div className="about-grid">
+                <div className="about-intro">
+                  <p className="about-file-label">
+                    <span>04</span>
+                    about.txt
+                  </p>
+                  <h2>From noisy inputs to useful software.</h2>
+                  <p className="about-description">{profile.about}</p>
+                </div>
 
-            <article className="education-panel">
-              <p className="font-mono text-xs font-medium text-[var(--accent)]">
-                Education
-              </p>
-              <h3 className="mt-5 text-balance text-2xl font-semibold tracking-[-0.035em] text-[var(--text-strong)]">
-                {education.program}
-              </h3>
-              <p className="mt-2 text-[var(--text)]">{education.institution}</p>
-              {education.dates && (
-                <p className="mt-1 text-sm text-[var(--text-muted)]">
-                  {education.dates}
-                </p>
-              )}
-              {education.details && education.details.length > 0 && (
-                <ul className="mt-7 grid gap-2 text-sm text-[var(--text-muted)] sm:grid-cols-2 lg:grid-cols-1">
-                  {education.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
-                  ))}
-                </ul>
-              )}
-            </article>
+                <div className="about-route">
+                  <p className="about-route-label">
+                    How the work tends to move
+                  </p>
+                  <ol>
+                    <li data-tone="cobalt">
+                      <span>01</span>
+                      <div>
+                        <strong>Observe</strong>
+                        <small>
+                          Start with real data and real constraints.
+                        </small>
+                      </div>
+                    </li>
+                    <li data-tone="green">
+                      <span>02</span>
+                      <div>
+                        <strong>Structure</strong>
+                        <small>
+                          Make a complex system legible and testable.
+                        </small>
+                      </div>
+                    </li>
+                    <li data-tone="red">
+                      <span>03</span>
+                      <div>
+                        <strong>Ship</strong>
+                        <small>
+                          Turn the model into something people can use.
+                        </small>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+
+              <article className="about-education">
+                <div className="about-education-mark" aria-hidden="true">
+                  <span>CS</span>
+                  <span>+</span>
+                  <span>MATH</span>
+                </div>
+
+                <div className="about-education-copy">
+                  <p>Education</p>
+                  <h3>{education.program}</h3>
+                  <p>{education.institution}</p>
+                  {education.dates && <small>{education.dates}</small>}
+                </div>
+
+                {education.details && education.details.length > 0 && (
+                  <ul className="about-course-list">
+                    {education.details.map((detail, index) => (
+                      <li key={detail}>
+                        <span>{String(index + 1).padStart(2, '0')}</span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </div>
           </div>
         </section>
 
