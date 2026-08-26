@@ -13,7 +13,7 @@ export const portfolioContent: PortfolioContent = {
       src: profilePhoto,
       alt: 'Kevin Gan in a professional studio portrait',
     },
-    email: 'lihaozhe013@gmail.com',
+    email: 'Kevin.gan@emory.edu',
     socialLinks: [
       {
         label: 'GitHub',

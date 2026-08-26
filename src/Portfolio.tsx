@@ -1,4 +1,5 @@
-import { ArrowUpRight, EnvelopeSimple } from '@phosphor-icons/react';
+import { ArrowUpRight } from '@phosphor-icons/react';
+import { ContactForm } from '@/components/ContactForm';
 import { PortfolioLink } from '@/components/PortfolioLink';
 import { ProjectFiles } from '@/components/ProjectFiles';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -17,7 +18,7 @@ function Portfolio({
   onToggleColorMode,
   onProjectNavigate,
 }: PortfolioProps) {
-  const { profile, projectFolders, projects, skillGroups, education } = content;
+  const { profile, projectFolders, projects, education } = content;
 
   return (
     <div className="min-h-[100dvh] bg-[var(--page)] text-[var(--text)]">
@@ -106,36 +107,6 @@ function Portfolio({
           </div>
         </section>
 
-        <section className="section-block scroll-mt-24" id="capabilities">
-          <div className="site-container">
-            <div className="section-heading">
-              <h2>Capabilities</h2>
-              <p>
-                A practical toolkit organized by the kind of engineering work it
-                supports.
-              </p>
-            </div>
-
-            <div className="capabilities-panel mt-12">
-              {skillGroups.map((group) => (
-                <article className="capability-group" key={group.title}>
-                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-[var(--text-strong)]">
-                    {group.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
-                    {group.description}
-                  </p>
-                  <ul className="mt-6 space-y-2 font-mono text-sm text-[var(--text)]">
-                    {group.skills.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="section-block scroll-mt-24" id="about">
           <div className="site-container">
             <div className="about-stage">
@@ -216,27 +187,7 @@ function Portfolio({
 
         <section className="section-block scroll-mt-24" id="contact">
           <div className="site-container">
-            <div className="contact-panel">
-              <div>
-                <h2 className="text-balance text-3xl font-semibold tracking-[-0.045em] text-[var(--text-strong)] sm:text-4xl">
-                  Build something useful.
-                </h2>
-                <p className="mt-4 max-w-[40rem] text-pretty leading-7 text-[var(--text)]">
-                  Reach out to discuss engineering roles, technical projects, or
-                  opportunities to collaborate.
-                </p>
-              </div>
-
-              {profile.email && (
-                <a
-                  className="button button-primary shrink-0"
-                  href={`mailto:${profile.email}`}
-                >
-                  <EnvelopeSimple aria-hidden="true" size={18} weight="bold" />
-                  Email me
-                </a>
-              )}
-            </div>
+            <ContactForm email={profile.email} />
           </div>
         </section>
       </main>

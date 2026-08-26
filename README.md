@@ -20,6 +20,17 @@ pnpm dev
 pnpm build
 ```
 
+### Contact Form
+
+The contact form submits through Formspree. Create a form in Formspree that
+delivers to the intended inbox, then copy `.env.example` to `.env.local` and
+set `VITE_FORMSPREE_ENDPOINT` to the form endpoint for local development.
+
+For production, add the same value as a GitHub Actions repository variable
+named `VITE_FORMSPREE_ENDPOINT` under **Settings → Secrets and variables →
+Actions → Variables**. The endpoint is included in the client bundle and is not
+a secret.
+
 ### Deployment
 
 Pushes to `main` are built and deployed to GitHub Pages by
