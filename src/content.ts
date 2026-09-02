@@ -1,3 +1,4 @@
+import emoryAiDataLabPoster from '@/assets/emory-ai-data-lab-poster.jpg';
 import profilePhoto from '@/assets/profile-photo-professional.png';
 import type { PortfolioContent } from '@/types';
 
@@ -66,6 +67,10 @@ export const portfolioContent: PortfolioContent = {
         'Delivered interactive maps and scenario views for evaluating transit-access opportunities.',
       technologies: ['Python', 'pandas', 'GeoPandas', 'Folium', 'MARTA GTFS'],
       featured: true,
+      media: {
+        src: emoryAiDataLabPoster,
+        alt: 'Kevin Gan standing beside the Emory AI Data Lab research poster',
+      },
       links: [
         {
           label: 'Project details',
