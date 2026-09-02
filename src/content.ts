@@ -52,6 +52,36 @@ export const portfolioContent: PortfolioContent = {
   ],
   projects: [
     {
+      id: 'atlanta-mobility-access',
+      folderId: 'software',
+      tone: 'purple',
+      title: 'Emory AI Data Lab',
+      summary:
+        'A geospatial analysis of MARTA routes, hypothetical stops, and nearby businesses across Atlanta.',
+      contribution:
+        'Built nearest-stop analyses, accessibility comparisons, and hypothetical-stop scenarios in Python, GeoPandas, and Folium.',
+      challenge:
+        'Make transit access legible across businesses, mobility groups, and disinvestment groups.',
+      outcome:
+        'Delivered interactive maps and scenario views for evaluating transit-access opportunities.',
+      technologies: ['Python', 'pandas', 'GeoPandas', 'Folium', 'MARTA GTFS'],
+      featured: true,
+      links: [
+        {
+          label: 'Project details',
+          href: '#project/atlanta-mobility-access',
+          kind: 'external',
+          openInNewTab: false,
+          transition: true,
+        },
+        {
+          label: 'GitHub',
+          href: 'https://github.com/kelsxcx/AIDataLabGroup10_2025',
+          kind: 'github',
+        },
+      ],
+    },
+    {
       id: 'zerolab-motion-capture',
       folderId: 'embedded',
       tone: 'cobalt',
@@ -108,36 +138,6 @@ export const portfolioContent: PortfolioContent = {
         {
           label: 'GitHub',
           href: 'https://github.com/Kevinsgans/event-talk-apps',
-          kind: 'github',
-        },
-      ],
-    },
-    {
-      id: 'atlanta-mobility-access',
-      folderId: 'software',
-      tone: 'purple',
-      title: 'Atlanta Mobility Access Lab',
-      summary:
-        'A geospatial analysis of MARTA routes, hypothetical stops, and nearby businesses across Atlanta.',
-      contribution:
-        'Built nearest-stop analyses, accessibility comparisons, and hypothetical-stop scenarios in Python, GeoPandas, and Folium.',
-      challenge:
-        'Make transit access legible across businesses, mobility groups, and disinvestment groups.',
-      outcome:
-        'Delivered interactive maps and scenario views for evaluating transit-access opportunities.',
-      technologies: ['Python', 'pandas', 'GeoPandas', 'Folium', 'MARTA GTFS'],
-      featured: true,
-      links: [
-        {
-          label: 'Project details',
-          href: '#project/atlanta-mobility-access',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-        {
-          label: 'GitHub',
-          href: 'https://github.com/kelsxcx/AIDataLabGroup10_2025',
           kind: 'github',
         },
       ],
