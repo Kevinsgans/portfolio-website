@@ -203,7 +203,10 @@ export function ProjectFiles({
                         )}
                       </div>
 
-                      <div className="project-file-visual" aria-hidden="true">
+                      <div
+                        className={`project-file-visual${media ? ' has-media' : ''}`}
+                        aria-hidden="true"
+                      >
                         {media ? (
                           <img
                             alt=""

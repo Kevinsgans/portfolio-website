@@ -17,6 +17,16 @@ export function ProjectDestination({
         <h1 className="project-destination-title">{project.title}</h1>
         <p className="project-destination-copy">{project.summary}</p>
 
+        {project.media && (
+          <figure className="project-destination-media">
+            <img
+              alt={project.media.alt}
+              decoding="async"
+              src={project.media.src}
+            />
+          </figure>
+        )}
+
         <dl className="project-destination-notes">
           <div>
             <dt>Contribution</dt>
