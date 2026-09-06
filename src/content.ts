@@ -53,19 +53,26 @@ export const portfolioContent: PortfolioContent = {
   ],
   projects: [
     {
-      id: 'atlanta-mobility-access',
+      id: 'emory-ai-data-lab',
       folderId: 'software',
       tone: 'purple',
       title: 'Emory AI Data Lab',
       summary:
-        'A geospatial analysis of MARTA routes, hypothetical stops, and nearby businesses across Atlanta.',
+        'An Emory AI Data Lab research project examining how MARTA access and connectivity influence visitor distribution and economic participation across Atlanta.',
       contribution:
-        'Built nearest-stop analyses, accessibility comparisons, and hypothetical-stop scenarios in Python, GeoPandas, and Folium.',
+        'Analyzed MARTA, business, mobility-score, and geospatial data; mapped accessibility gaps; and modeled hypothetical bus routes in Python.',
       challenge:
-        'Make transit access legible across businesses, mobility groups, and disinvestment groups.',
+        'Identify where transit improvements could connect major visitor destinations with historically underserved business districts.',
       outcome:
-        'Delivered interactive maps and scenario views for evaluating transit-access opportunities.',
-      technologies: ['Python', 'pandas', 'GeoPandas', 'Folium', 'MARTA GTFS'],
+        'Presented proposed bus routes and spatial findings showing where improved connectivity could broaden access to visitor-driven economic activity.',
+      technologies: [
+        'Python',
+        'pandas',
+        'GeoPandas',
+        'Folium',
+        'OSMnx',
+        'MARTA GTFS',
+      ],
       featured: true,
       media: {
         src: emoryAiDataLabPoster,
@@ -74,7 +81,7 @@ export const portfolioContent: PortfolioContent = {
       links: [
         {
           label: 'Project details',
-          href: '#project/atlanta-mobility-access',
+          href: '#project/emory-ai-data-lab',
           kind: 'external',
           openInNewTab: false,
           transition: true,
