@@ -19,11 +19,21 @@ export function ProjectDestination({
 
         {project.media && (
           <figure className="project-destination-media">
-            <img
-              alt={project.media.alt}
-              decoding="async"
-              src={project.media.src}
-            />
+            {project.media.kind === 'video' ? (
+              <video
+                aria-label={project.media.alt}
+                controls
+                playsInline
+                preload="metadata"
+                src={project.media.src}
+              />
+            ) : (
+              <img
+                alt={project.media.alt}
+                decoding="async"
+                src={project.media.src}
+              />
+            )}
           </figure>
         )}
 

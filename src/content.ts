@@ -1,5 +1,7 @@
 import emoryAiDataLabPoster from '@/assets/emory-ai-data-lab-poster.jpg';
-import profilePhoto from '@/assets/profile-photo-professional.png';
+import profilePhoto from '@/assets/profile-photo-professional.jpg';
+import mocapImage from '@/assets/Mocap.png';
+import robotVideo from '@/assets/zerolab-robot.mp4';
 import type { PortfolioContent } from '@/types';
 
 export const portfolioContent: PortfolioContent = {
@@ -97,7 +99,7 @@ export const portfolioContent: PortfolioContent = {
       id: 'zerolab-motion-capture',
       folderId: 'embedded',
       tone: 'cobalt',
-      title: 'ZeroLab Motion Capture',
+      title: 'Rust Motion Capture',
       summary:
         'A motion-capture and robotics software stack for inspecting live IMU streams and translating body motion into reliable interactive inputs.',
       contribution:
@@ -108,6 +110,10 @@ export const portfolioContent: PortfolioContent = {
         'Created a focused diagnostic surface for real-time capture and a reusable path from sensor data to game-ready controls.',
       technologies: ['Rust', 'eframe/egui', 'IMU', 'Motion capture', 'Godot'],
       featured: true,
+      media: {
+        src: mocapImage,
+        alt: 'Rust Motion Capture project preview',
+      },
       links: [
         {
           label: 'Project details',
@@ -119,38 +125,34 @@ export const portfolioContent: PortfolioContent = {
       ],
     },
     {
-      id: 'bigquery-release-notes',
-      folderId: 'software',
+      id: 'zerolab-robotics',
+      folderId: 'embedded',
       tone: 'green',
-      title: 'BigQuery Release Notes',
-      summary:
-        'A Flask dashboard that turns the live Google Cloud BigQuery RSS feed into searchable, topic-level release cards.',
-      contribution:
-        'Built the feed ingestion, five-minute cache, topic splitting, responsive interface, and tweet composer with a live character count.',
-      challenge:
-        'Keep a live external feed useful during refreshes while making dense release notes easy to scan.',
-      outcome:
-        'Combined manual refresh, filters, search, and a Twitter intent workflow in one responsive dark dashboard.',
-      technologies: [
-        'Python',
-        'Flask',
-        'Requests',
-        'Vanilla JavaScript',
-        'CSS',
-      ],
+      title: 'ZeroLab Robotics',
+      media: {
+        kind: 'video',
+        src: robotVideo,
+        alt: 'ZeroLab Robotics robot demonstration',
+      },
+      summary: 'The public website for ZeroLab Robotics.',
+      contribution: 'Built the ZeroLab Robotics website.',
+      challenge: 'Project challenge coming soon.',
+      outcome: 'Project outcomes coming soon.',
+      technologies: [],
       featured: true,
       links: [
         {
           label: 'Project details',
-          href: '#project/bigquery-release-notes',
+          href: '#project/zerolab-robotics',
           kind: 'external',
           openInNewTab: false,
           transition: true,
         },
         {
-          label: 'GitHub',
-          href: 'https://github.com/Kevinsgans/event-talk-apps',
-          kind: 'github',
+          label: 'Visit website',
+          href: 'https://www.zero-lab.tech/',
+          kind: 'website',
+          openInNewTab: true,
         },
       ],
     },
@@ -180,36 +182,6 @@ export const portfolioContent: PortfolioContent = {
         {
           label: 'GitHub',
           href: 'https://github.com/Kevinsgans/SF1',
-          kind: 'github',
-        },
-      ],
-    },
-    {
-      id: 'makemore-language-model',
-      folderId: 'software',
-      tone: 'charcoal',
-      title: 'Makemore Language Model',
-      summary:
-        'A compact character-level language model that learns to generate name-like text from plain-text datasets.',
-      contribution:
-        'Explored a single-file training and sampling workflow across bigram, MLP, recurrent, and Transformer-style language models.',
-      challenge:
-        'Make model experiments small enough to understand, modify, and run locally while preserving useful text generation.',
-      outcome:
-        'A hackable CPU-friendly workflow for training and sampling language models from simple line-based datasets.',
-      technologies: ['Python', 'PyTorch', 'RNN', 'GRU', 'Transformer'],
-      featured: false,
-      links: [
-        {
-          label: 'Project details',
-          href: '#project/makemore-language-model',
-          kind: 'external',
-          openInNewTab: false,
-          transition: true,
-        },
-        {
-          label: 'GitHub',
-          href: 'https://github.com/Kevingan11/makemore',
           kind: 'github',
         },
       ],

@@ -277,32 +277,44 @@ button {
 }
 
 .hero-section {
-  display: flex;
-  min-height: calc(100dvh - 4.5rem);
-  align-items: center;
-  padding-block: 4rem 5rem;
+  padding-block: clamp(3rem, 6vw, 5rem) 3rem;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.65fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4rem);
+  text-align: left;
+}
+
+.hero-name {
+  color: var(--text-strong);
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.065em;
+  text-wrap: balance;
+}
+
+.hero-copy {
+  width: 100%;
+  padding-block: 0.5rem;
 }
 
 .hero-photo-wrap {
   position: relative;
-  width: min(100%, 24rem);
-  justify-self: end;
-}
-
-.hero-photo-wrap::before {
-  position: absolute;
-  inset: -0.8rem 0.8rem 0.8rem -0.8rem;
-  z-index: -1;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  content: '';
+  width: 100%;
+  max-width: 22rem;
 }
 
 .hero-photo {
   width: 100%;
   aspect-ratio: 4 / 5;
-  border-radius: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
   object-fit: cover;
+  object-position: center 30%;
   box-shadow: var(--shadow);
 }
 
@@ -701,7 +713,8 @@ button {
   pointer-events: none;
 }
 
-.project-file-visual img {
+.project-file-visual img,
+.project-file-visual video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -719,7 +732,8 @@ button {
   border: 1px solid rgb(255 255 255 / 16%);
 }
 
-.project-file-visual.has-media img {
+.project-file-visual.has-media img,
+.project-file-visual.has-media video {
   object-fit: contain;
   object-position: center;
   filter: saturate(0.96) contrast(1.01);
@@ -1010,16 +1024,30 @@ button {
 }
 
 .project-file-panel {
-  grid-template-columns: minmax(0, 1.25fr) minmax(13rem, 0.58fr);
-  gap: clamp(1.75rem, 4vw, 3.5rem);
-  padding: clamp(1rem, 2.5vw, 1.6rem) clamp(1rem, 4vw, 3rem)
-    clamp(2rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem) 1.75rem;
+}
+
+.project-folder:not(:last-child) .project-file-panel {
+  padding-bottom: 5.5rem;
 }
 
 .project-file-copy h4 {
-  margin-top: clamp(1.8rem, 3vw, 2.8rem);
-  font-size: clamp(2.2rem, 4.4vw, 4rem);
-  line-height: 0.94;
+  max-width: none;
+  margin-top: 0.75rem;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.1;
+}
+
+.project-file-copy .project-file-visual {
+  width: 100%;
+  max-width: 18rem;
+  justify-self: start;
+  margin-inline: 0;
+  margin-top: 1rem;
+  aspect-ratio: 16 / 10;
+  transform: none;
 }
 
 .project-file-summary {
@@ -1483,7 +1511,7 @@ button {
     );
   gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
-  margin-top: clamp(4rem, 8vw, 7rem);
+  margin-top: 0;
   padding: clamp(1.4rem, 3vw, 2.4rem);
   border: 1px solid rgb(23 23 21 / 12%);
   border-radius: 5px;
@@ -2090,7 +2118,8 @@ button {
   box-shadow: 0 24px 60px rgb(0 0 0 / 18%);
 }
 
-.project-destination-media img {
+.project-destination-media img,
+.project-destination-media video {
   display: block;
   width: 100%;
   height: auto;
@@ -2324,11 +2353,16 @@ button {
   }
 
   .hero-section {
-    padding-block: 3.5rem 5rem;
+    padding-block: 3rem 2rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
   }
 
   .hero-photo-wrap {
-    display: none;
+    max-width: 18rem;
   }
 
   .section-block {

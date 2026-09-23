@@ -29,6 +29,7 @@ export interface Profile {
 }
 
 export interface ProjectMedia {
+  kind?: 'image' | 'video';
   src: string;
   alt: string;
 }

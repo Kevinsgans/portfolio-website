@@ -154,39 +154,61 @@ export function ProjectFiles({
                           {getProjectFileName(project)}
                         </p>
                         <h4>{project.title}</h4>
+                        <div
+                          className={`project-file-visual${media ? ' has-media' : ''}`}
+                        >
+                          {media?.kind === 'video' ? (
+                            isOpen && !isTurningOut ? (
+                              <video
+                                aria-label={media.alt}
+                                controls
+                                playsInline
+                                preload="metadata"
+                                src={media.src}
+                              />
+                            ) : null
+                          ) : media ? (
+                            <img
+                              alt={media.alt}
+                              loading="lazy"
+                              onError={() =>
+                                setFailedMedia((current) => {
+                                  const next = new Set(current);
+                                  next.add(project.id);
+                                  return next;
+                                })
+                              }
+                              src={media.src}
+                            />
+                          ) : (
+                            <div
+                              className="project-file-placeholder"
+                              aria-hidden="true"
+                            >
+                              <span>
+                                {project.folderId.slice(0, 3).toUpperCase()}
+                              </span>
+                              <strong>{project.title}</strong>
+                              <small>{getProjectFileName(project)}</small>
+                            </div>
+                          )}
+                        </div>
                         <p className="project-file-summary">
                           {project.summary}
                         </p>
 
-                        <dl className="project-file-notes">
-                          <div>
-                            <dt>Contribution</dt>
-                            <dd>{project.contribution}</dd>
-                          </div>
-                          {project.challenge && (
-                            <div>
-                              <dt>Challenge</dt>
-                              <dd>{project.challenge}</dd>
-                            </div>
-                          )}
-                          {project.outcome && (
-                            <div>
-                              <dt>Outcome</dt>
-                              <dd>{project.outcome}</dd>
-                            </div>
-                          )}
-                        </dl>
-
-                        <ul
-                          aria-label={`${project.title} technologies`}
-                          className="tag-list mt-7"
-                        >
-                          {project.technologies.map((technology) => (
-                            <li className="tag" key={technology}>
-                              {technology}
-                            </li>
-                          ))}
-                        </ul>
+                        {project.technologies.length > 0 && (
+                          <ul
+                            aria-label={`${project.title} technologies`}
+                            className="tag-list mt-4"
+                          >
+                            {project.technologies.map((technology) => (
+                              <li className="tag" key={technology}>
+                                {technology}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
 
                         {project.links && project.links.length > 0 && (
                           <div className="project-file-links">
@@ -199,34 +221,6 @@ export function ProjectFiles({
                                 pageTransitionId={project.id}
                               />
                             ))}
-                          </div>
-                        )}
-                      </div>
-
-                      <div
-                        className={`project-file-visual${media ? ' has-media' : ''}`}
-                        aria-hidden="true"
-                      >
-                        {media ? (
-                          <img
-                            alt=""
-                            loading="lazy"
-                            onError={() =>
-                              setFailedMedia((current) => {
-                                const next = new Set(current);
-                                next.add(project.id);
-                                return next;
-                              })
-                            }
-                            src={media.src}
-                          />
-                        ) : (
-                          <div className="project-file-placeholder">
-                            <span>
-                              {project.folderId.slice(0, 3).toUpperCase()}
-                            </span>
-                            <strong>{project.title}</strong>
-                            <small>{getProjectFileName(project)}</small>
                           </div>
                         )}
                       </div>
