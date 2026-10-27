@@ -2,6 +2,9 @@ import emoryAiDataLabPoster from '@/assets/emory-ai-data-lab-poster.jpg';
 import profilePhoto from '@/assets/profile-photo-professional.jpg';
 import mocapImage from '@/assets/Mocap.png';
 import robotVideo from '@/assets/zerolab-robot.mp4';
+import zerolabLogo from '@/assets/zerolab-logo.png';
+import kemaiLogo from '@/assets/kemai-logo.png';
+import investAtlantaLogo from '@/assets/invest-atlanta-logo.webp';
 import type { PortfolioContent } from '@/types';
 
 export const portfolioContent: PortfolioContent = {
@@ -28,13 +31,28 @@ export const portfolioContent: PortfolioContent = {
         href: 'https://www.linkedin.com/in/kevinsgans/',
         kind: 'linkedin',
       },
-      {
-        label: 'Website',
-        href: 'https://lihaozhe013.github.io/lihaozhe-website/',
-        kind: 'website',
-      },
     ],
   },
+  experience: [
+    {
+      organization: 'Zerolab Technology',
+      logo: { src: zerolabLogo, alt: 'Zerolab Technology logo' },
+      role: 'Software Engineering Intern',
+      dates: 'Jul. 2026 – Aug. 2026',
+    },
+    {
+      organization: 'Kemai Technology',
+      logo: { src: kemaiLogo, alt: 'Kemai Technology logo' },
+      role: 'Data Engineering Intern',
+      dates: 'May 2026 – Jul. 2026',
+    },
+    {
+      organization: 'Invest Atlanta',
+      logo: { src: investAtlantaLogo, alt: 'Invest Atlanta logo' },
+      role: 'Data Analyst',
+      dates: 'Sep. 2025 – Dec. 2025',
+    },
+  ],
   projectFolders: [
     {
       id: 'software',
@@ -101,18 +119,18 @@ export const portfolioContent: PortfolioContent = {
       tone: 'cobalt',
       title: 'Rust Motion Capture',
       summary:
-        'A motion-capture and robotics software stack for inspecting live IMU streams and translating body motion into reliable interactive inputs.',
+        'Rust tools for inspecting live IMU streams, diagnosing capture problems, and translating body motion into game controls.',
       contribution:
         'Built a standalone Rust diagnostics application and a modular motion-processing pipeline for skeleton state, gesture scores, packet health, calibration, and Godot input.',
       challenge:
         'Keep sensor inspection, capture health, and motion translation observable without blocking the live capture loop.',
       outcome:
-        'Created a focused diagnostic surface for real-time capture and a reusable path from sensor data to game-ready controls.',
+        'Delivered a Rust diagnostics application for inspecting capture health and a motion-processing pipeline for Godot input.',
       technologies: ['Rust', 'eframe/egui', 'IMU', 'Motion capture', 'Godot'],
       featured: true,
       media: {
         src: mocapImage,
-        alt: 'Rust Motion Capture project preview',
+        alt: 'Motion-capture viewer showing a tracked skeleton',
       },
       links: [
         {
@@ -126,7 +144,7 @@ export const portfolioContent: PortfolioContent = {
     },
     {
       id: 'zerolab-robotics',
-      folderId: 'embedded',
+      folderId: 'software',
       tone: 'green',
       title: 'ZeroLab Robotics',
       media: {
@@ -136,8 +154,6 @@ export const portfolioContent: PortfolioContent = {
       },
       summary: 'The public website for ZeroLab Robotics.',
       contribution: 'Built the ZeroLab Robotics website.',
-      challenge: 'Project challenge coming soon.',
-      outcome: 'Project outcomes coming soon.',
       technologies: [],
       featured: true,
       links: [
@@ -157,32 +173,27 @@ export const portfolioContent: PortfolioContent = {
       ],
     },
     {
-      id: 'scholarship-application-agent',
-      folderId: 'infrastructure',
-      tone: 'red',
-      title: 'Scholarship Application Agent',
+      id: 'notetaker',
+      folderId: 'embedded',
+      tone: 'cobalt',
+      title: 'NoteTaker',
       summary:
-        'A local-first scholarship workflow with a FastAPI backend, React setup workspace, SQLite persistence, and document/profile APIs.',
+        'An embedded computer-vision note scanner that turns paper notes into corrected scans with searchable storage.',
       contribution:
-        'Built validated profile and document APIs, versioned local persistence, React workspaces, health checks, and a deterministic test suite.',
+        'Built a Python/OpenCV pipeline for automatic page detection, perspective correction, and quality checks; implemented Raspberry Pi camera and Hailo inference adapters.',
       challenge:
-        'Keep sensitive profile and document metadata local while making state transitions and file checks explicit.',
+        'Keep capture and inference isolated while recovering from crashes and checking scan quality.',
       outcome:
-        'Created a tested foundation for profile setup and document management, with discovery and automation intentionally outside the current scope.',
-      technologies: ['React', 'TypeScript', 'FastAPI', 'SQLAlchemy', 'SQLite'],
+        'Implemented crash recovery and isolated capture/inference workers, validated with 32 automated tests, and developed benchmarks for capture accuracy, processing latency, and metadata retrieval quality.',
+      technologies: ['Python', 'OpenCV', 'Raspberry Pi', 'Hailo'],
       featured: true,
       links: [
         {
           label: 'Project details',
-          href: '#project/scholarship-application-agent',
+          href: '#project/notetaker',
           kind: 'external',
           openInNewTab: false,
           transition: true,
-        },
-        {
-          label: 'GitHub',
-          href: 'https://github.com/Kevinsgans/SF1',
-          kind: 'github',
         },
       ],
     },

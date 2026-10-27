@@ -224,6 +224,7 @@ function App() {
     <>
       {destinationProject ? (
         <ProjectDestination
+          isNavigating={pageTransitionPhase !== 'idle'}
           onBack={handleBackToArchive}
           project={destinationProject}
         />

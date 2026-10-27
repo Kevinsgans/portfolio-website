@@ -76,8 +76,16 @@ export interface SiteMetadata {
   socialPreviewImage?: string;
 }
 
+export interface Experience {
+  organization: string;
+  role: string;
+  dates: string;
+  logo?: ProfileImage;
+}
+
 export interface PortfolioContent {
   profile: Profile;
+  experience: Experience[];
   projectFolders: ProjectFolder[];
   projects: Project[];
   skillGroups: SkillGroup[];

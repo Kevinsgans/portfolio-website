@@ -1,5 +1,4 @@
-import { ArrowUpRight } from '@phosphor-icons/react';
-import { ContactForm } from '@/components/ContactForm';
+import { ArrowUpRight, GithubLogo, LinkedinLogo } from '@phosphor-icons/react';
 import { PortfolioLink } from '@/components/PortfolioLink';
 import { ProjectFiles } from '@/components/ProjectFiles';
 import { SiteHeader } from '@/components/SiteHeader';
@@ -18,7 +17,7 @@ function Portfolio({
   onToggleColorMode,
   onProjectNavigate,
 }: PortfolioProps) {
-  const { profile, projectFolders, projects } = content;
+  const { profile, experience, projectFolders, projects } = content;
 
   return (
     <div className="min-h-[100dvh] bg-[var(--page)] text-[var(--text)]">
@@ -87,6 +86,38 @@ function Portfolio({
           </div>
         </section>
 
+        <section className="section-block scroll-mt-24" id="experience">
+          <div className="site-container">
+            <div className="section-heading">
+              <h2>Experience</h2>
+            </div>
+            <ul className="experience-list">
+              {experience.map((entry) => (
+                <li className="experience-entry" key={entry.organization}>
+                  <div className="experience-role-group">
+                    {entry.logo && (
+                      <img
+                        className="experience-logo"
+                        src={entry.logo.src}
+                        alt={entry.logo.alt}
+                        width={44}
+                        height={44}
+                      />
+                    )}
+                    <p className="experience-role">
+                      {entry.role}{' '}
+                      <span className="experience-organization">
+                        @ {entry.organization}
+                      </span>
+                    </p>
+                  </div>
+                  <span className="experience-dates">{entry.dates}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
         <section className="section-block scroll-mt-24" id="work">
           <div className="site-container">
             <div className="section-heading">
@@ -107,7 +138,48 @@ function Portfolio({
 
         <section className="section-block scroll-mt-24" id="contact">
           <div className="site-container">
-            <ContactForm email={profile.email} />
+            <h2 className="contact-heading">Contact</h2>
+            <div className="contact-row">
+              {profile.email && (
+                <a
+                  className="contact-email focus-ring"
+                  href={`mailto:${profile.email}`}
+                >
+                  {profile.email}
+                </a>
+              )}
+              <div className="contact-socials">
+                {profile.socialLinks
+                  .filter(
+                    (link) =>
+                      link.kind === 'github' || link.kind === 'linkedin',
+                  )
+                  .map((link) => (
+                    <a
+                      className="contact-social-link focus-ring"
+                      key={link.kind}
+                      href={link.href}
+                      aria-label={link.label}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.kind === 'github' ? (
+                        <GithubLogo
+                          aria-hidden="true"
+                          size={28}
+                          weight="fill"
+                        />
+                      ) : (
+                        <LinkedinLogo
+                          aria-hidden="true"
+                          size={28}
+                          weight="fill"
+                        />
+                      )}
+                    </a>
+                  ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>

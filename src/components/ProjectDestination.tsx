@@ -1,93 +1,153 @@
-import { ArrowLeft } from '@phosphor-icons/react';
+import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react';
 import type { Project } from '@/types';
 
 interface ProjectDestinationProps {
   project: Project;
   onBack: () => void;
+  isNavigating: boolean;
 }
+
+const categories: Record<Project['folderId'], string> = {
+  software: 'Software & data',
+  embedded: 'Embedded systems',
+  infrastructure: 'Infrastructure',
+};
 
 export function ProjectDestination({
   project,
   onBack,
+  isNavigating,
 }: ProjectDestinationProps) {
+  const externalLinks = project.links?.filter(
+    (link) => !link.href.startsWith('#project/'),
+  );
+
   return (
     <main className="project-destination" data-project-tone={project.tone}>
       <div className="project-destination-content">
-        <p className="project-destination-kicker">Project details</p>
-        <h1 className="project-destination-title">{project.title}</h1>
-        <p className="project-destination-copy">{project.summary}</p>
-
-        {project.media && (
-          <figure className="project-destination-media">
-            {project.media.kind === 'video' ? (
-              <video
-                aria-label={project.media.alt}
-                controls
-                playsInline
-                preload="metadata"
-                src={project.media.src}
-              />
-            ) : (
-              <img
-                alt={project.media.alt}
-                decoding="async"
-                src={project.media.src}
-              />
-            )}
-          </figure>
-        )}
-
-        <dl className="project-destination-notes">
-          <div>
-            <dt>Contribution</dt>
-            <dd>{project.contribution}</dd>
-          </div>
-          {project.challenge && (
-            <div>
-              <dt>Challenge</dt>
-              <dd>{project.challenge}</dd>
-            </div>
-          )}
-          {project.outcome && (
-            <div>
-              <dt>Outcome</dt>
-              <dd>{project.outcome}</dd>
-            </div>
-          )}
-        </dl>
-
-        <ul
-          aria-label={`${project.title} technologies`}
-          className="project-destination-tags"
+        <nav
+          className="project-destination-nav"
+          aria-label="Project navigation"
         >
-          {project.technologies.map((technology) => (
-            <li key={technology}>{technology}</li>
-          ))}
-        </ul>
-
-        <div className="project-destination-actions">
           <button
             className="project-destination-back"
             onClick={onBack}
+            disabled={isNavigating}
             type="button"
           >
-            <ArrowLeft aria-hidden="true" size={17} weight="bold" />
+            <ArrowLeft aria-hidden="true" size={18} />
             Back to project files
           </button>
-          {project.links
-            ?.filter((link) => !link.href.startsWith('#project/'))
-            .map((link) => (
-              <a
-                className="project-destination-link"
-                href={link.href}
-                key={`${project.id}-${link.label}`}
-                rel={link.openInNewTab === false ? undefined : 'noreferrer'}
-                target={link.openInNewTab === false ? undefined : '_blank'}
-              >
-                {link.label}
-              </a>
-            ))}
+          <span className="project-destination-owner">
+            Kevin Gan / Selected work
+          </span>
+        </nav>
+
+        <header className="project-destination-header">
+          <p className="project-destination-kicker">
+            {categories[project.folderId]}
+          </p>
+          <h1 className="project-destination-title">{project.title}</h1>
+          <p className="project-destination-copy">{project.summary}</p>
+          {!!externalLinks?.length && (
+            <div className="project-destination-actions">
+              {externalLinks.map((link) => (
+                <a
+                  className="project-destination-link"
+                  href={link.href}
+                  key={link.href}
+                  rel={link.openInNewTab === false ? undefined : 'noreferrer'}
+                  target={link.openInNewTab === false ? undefined : '_blank'}
+                >
+                  {link.label === 'GitHub' ? 'View source' : link.label}
+                  <ArrowUpRight aria-hidden="true" size={17} />
+                </a>
+              ))}
+            </div>
+          )}
+        </header>
+
+        {project.media && (
+          <figure className="project-destination-media">
+            <div className="project-destination-media-frame">
+              {project.media.kind === 'video' ? (
+                <video
+                  aria-label={project.media.alt}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  src={project.media.src}
+                />
+              ) : (
+                <a
+                  href={project.media.src}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View full-size image: ${project.media.alt}`}
+                >
+                  <img
+                    alt={project.media.alt}
+                    decoding="async"
+                    src={project.media.src}
+                  />
+                </a>
+              )}
+            </div>
+            <figcaption>
+              <span>{project.media.alt}</span>
+              {project.media.kind !== 'video' && (
+                <span>Click image to enlarge ↗</span>
+              )}
+            </figcaption>
+          </figure>
+        )}
+
+        <div className="project-destination-body">
+          <div className="project-destination-notes">
+            <section>
+              <h2>My contribution</h2>
+              <p>{project.contribution}</p>
+            </section>
+            {project.challenge && (
+              <section>
+                <h2>The problem</h2>
+                <p>{project.challenge}</p>
+              </section>
+            )}
+            {project.outcome && (
+              <section>
+                <h2>Results</h2>
+                <p>{project.outcome}</p>
+              </section>
+            )}
+          </div>
+          {project.technologies.length > 0 && (
+            <aside
+              className="project-destination-stack"
+              aria-label="Tools and technologies"
+            >
+              <h2>Built with</h2>
+              <ul className="project-destination-tags">
+                {project.technologies.map((technology) => (
+                  <li key={technology}>{technology}</li>
+                ))}
+              </ul>
+            </aside>
+          )}
         </div>
+
+        <footer className="project-destination-footer">
+          <button
+            className="project-destination-back"
+            onClick={onBack}
+            disabled={isNavigating}
+            type="button"
+          >
+            <ArrowLeft aria-hidden="true" size={18} />
+            Back to project files
+          </button>
+          <span>Kevin Gan</span>
+        </footer>
       </div>
     </main>
   );

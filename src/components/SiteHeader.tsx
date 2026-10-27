@@ -9,6 +9,7 @@ interface SiteHeaderProps {
 }
 
 const navigation = [
+  { label: 'Experience', href: '#experience' },
   { label: 'Work', href: '#work' },
   { label: 'Contact', href: '#contact' },
 ];

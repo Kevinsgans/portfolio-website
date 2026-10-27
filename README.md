@@ -20,16 +20,11 @@ pnpm dev
 pnpm build
 ```
 
-### Contact Form
+### Portfolio Content
 
-The contact form submits through Formspree. Create a form in Formspree that
-delivers to the intended inbox, then copy `.env.example` to `.env.local` and
-set `VITE_FORMSPREE_ENDPOINT` to the form endpoint for local development.
-
-For production, add the same value as a GitHub Actions repository variable
-named `VITE_FORMSPREE_ENDPOINT` under **Settings → Secrets and variables →
-Actions → Variables**. The endpoint is included in the client bundle and is not
-a secret.
+Edit profile links and experience entries in `src/content.ts`. Experience
+logos are optional: import an image and set `logo: { src, alt }` on the entry.
+Contact uses a direct email link and does not require a form service.
 
 ### Deployment
 
