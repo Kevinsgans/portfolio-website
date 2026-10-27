@@ -1,5 +1,17 @@
 /node_modules/
 /dist/
 /.pnpm-store/
-/.env
+.env
+.env.*
+!.env.example
 .DS_Store
+*.log
+*.tsbuildinfo
+
+# Local agent tooling
+/.agents/skills/
+/skills-lock.json
+
+# Unused source media retained locally
+/src/assets/ZeroLabRobot.MOV
+/src/assets/AtlantaPoster.png
